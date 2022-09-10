@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style2.css?{% now "U" %}">
+	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<title>Profile[Donator]</title>
+</head>
+
+<body>
+    <div class="topnav1">
+        <a href="/home/">Logout</a>
+        <a class="active" href='#'>Profile</a>
+    </div>
+
+	<div class="about-section">
+		<h2 class="heading-secondary">
+			<div class="u-align-center u-margin-bottom-big">
+				Welcome to our family As a Donator!
+			</div>
+		</h2>
+		<div class="row">
+			<div class="col-1-of-2">
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					Name
+				</h3>
+				<p class="paragraph">
+					{{FIRST_NAME}}
+					{{LAST_NAME}}
+				</p>
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					Email
+				</h3>
+				<p class="paragraph">
+					{{EMAIL}} 
+				</p>
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					Phone Number
+				</h3>
+				<p class="paragraph">
+					{{CONTACT}} 
+				</p>
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					NID
+				</h3>
+				<p class="paragraph">
+					{{NID}} 
+				</p>
+			</div>
+            <div class="col-1-of-3">
+				<div class="row"><br></div>
+				<div class="row">
+					<a href="/event_details_d/" class="btn-rectangular">Donate now &rarr;</a>
+				</div>
+				<div class="row">
+					<a href="/donateHistory/" class="btn-rectangular">Donate History</a>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script> 
+		{% for message in messages %}
+			{% if message.tags == 'success'%}
+				swal({
+					title: "Payment Done!",
+					text: "💗Thanks for being the happiness of others💗",
+					icon: "success",
+					button: "Pleasure!",
+				});
+			{% endif %}
+		{%endfor%}
+	</script
+</body>
+</html>
+

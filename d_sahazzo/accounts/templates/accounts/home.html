@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>SAHAZZO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/f0b4d212f8.js" crossorigin="anonymous"></script>
+
+
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300;400;500;700&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="/static/css/fluid.css?{% now "U" %}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now "U" %}">
+	<link rel="stylesheet" type="text/css" href="/static/css/media-query.css?{% now "U" %}">
+	
+
+</head>
+<body>
+<header id="home">
+	<nav>
+		<ul class="main-nav">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#signup">SignUp</a></li>
+				<li><a href="#login">Login</a></li>
+		</ul>
+	</nav>
+	<div class="header-box">
+		<div class="header-text-box">
+			<h1>SAHAZZO</h1>
+			<h2>You're the hope of others.</h2>
+		</div>
+		<!-- <a href="#" class="btn btn-full">Learn More</a> -->
+	</div>
+</header>
+
+
+
+<section class="signup-section js--signup-section" id="signup">
+	<div class="row">                                  
+		<h2 class="signup-heading">A Fundraising Platform You Can Trust.</h2>
+	</div>
+	<div class="row">
+		<a href="/SignupDonator/" class="btn btn-ghost3">SignUp as Donator</a>
+		<a href="/SignupOrganizor/" class="btn btn-ghost3">SignUp as Organizor</a>
+		<a href="/SignupVolunteer/" class="btn btn-ghost3">SignUp as Volunteer</a>
+	</div>
+</section>
+
+<section class="work-section">
+	<div class="row">
+		<h2 class="section-heading">Our Work</h2>
+		<h3 class="section-sub-heading">for the helpless people all over the world</h3>
+	</div>
+	<ul class="work-portfolio clearfix">
+		<li>
+			<figure class="portfolio-image">
+				<img src="{% static '/img/disaster.jpg' %}" alt="Disaster Response">
+				<p class="work-para">Disaster Response</p>
+			</figure>
+		</li>
+		<li>
+			<figure class="portfolio-image">
+				<img src="{% static '/img/treatment.jpg' %}" alt="Treatment Support">
+				<p class="work-para">Medical Support</p>
+			</figure>
+		</li>
+		<li>
+			<figure class="portfolio-image">
+				<img src="{% static '/img/hunger.jpg' %}" alt="Response for Hunger">
+				<p class="work-para">Response for Hunger</p>
+			</figure>
+		</li>
+		<li>
+			<figure class="portfolio-image">
+				<img src="{% static '/img/homeless.jpg' %}" alt="Support for Homeless">
+				<p class="work-para">Support for Homeless</p>
+			</figure>
+		</li>
+		
+	</ul>
+</section>
+
+
+<section class="login-section js--login" id="login">
+	<div class="row">
+		<h2 class="login-heading2">We're happy to have you</h2>		
+	</div>
+	<div class="row">
+		<div class="col span_1_of_4">
+			<a href="/LoginDonator/" class="btn btn-ghost2">Log in as Donator</a>
+		</div>
+		<div class="col span_1_of_4">
+			<a href="/LoginOrganizor/" class="btn btn-ghost2">Log in as Organizor</a>
+		</div>
+		<div class="col span_1_of_4">
+			<a href="/LoginVolunteer/" class="btn btn-ghost2">Log in as Volunteer</a>
+		</div>
+		<div class="col span_1_of_4">
+			<a href="/LoginAdmin/" class="btn btn-ghost2">Log in as Admin</a>
+		</div>
+	</div>
+
+<section class="end">
+	
+</section>
+
+<footer>
+	</div>
+	<div class="row">
+		<p>&copy; Project SAHAZZO</p>
+	</div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static '/img/script.js' %}"></script>
+
+
+<script> 
+	{% for message in messages %}
+		{% if message.tags == 'success'%}
+			Swal.fire({
+				title: 'Happy to have you!',
+				showClass: {
+				popup: 'animate__animated animate__fadeInDown'
+				},
+				hideClass: {
+				popup: 'animate__animated animate__fadeOutUp'
+				}
+			})
+		{% endif %}
+	{%endfor%}
+</script
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style2.css?{% now "U" %}">
+	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<title>Event Details [Donator]</title>
+	<style>.button {
+		border: none;
+		color: rgb(255, 254, 254);
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin-left: 45%;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	  }
+	  
+	  .button1 {
+		background-color: #4CAF50;
+		color: rgb(255, 255, 255);
+		border: 2px solid #4CAF50;
+	  }
+	  
+	  .button1:hover {
+		background-color: #38883b;
+		color: white;
+		box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+	  }
+	  #content{
+		width:100%;
+		background-color: rgb(241, 252, 239); 
+		padding: 2%;
+		margin-top: 1%;
+		margin-bottom: 1%;
+		display: none;
+	  }
+	  </style>
+
+	
+</head>
+
+<body>
+
+    <div class="topnav1">
+        <a href="/donator_profile/">Profile</a>
+        <a class="active" href="#">Events & Donate</a>
+    </div>
+
+	
+	<h2 class="heading-secondary2">
+		<div class="u-align-center u-margin-bottom-big">
+			Events Section
+		</div>
+	</h2>
+	{% for value in a_dict.values %}
+		<div class="amenities3-section">
+			<div class="row">
+				<div class="col-1-of-5">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Event ID
+					</h3>
+					<p class="paragraph">
+						{{value.2}} 
+					</p>
+				</div>
+				<div class="col-1-of-5">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Event Name
+					</h3>
+					<p class="paragraph">
+						{{value.0}}  
+					</p>
+				</div>
+				<div class="col-1-of-5">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Location
+					</h3>
+					<p class="paragraph">
+						{{value.4}}  
+					</p>
+				</div>
+				<div class="col-1-of-5">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Budget
+					</h3>
+					<p class="paragraph">
+						{{value.1}} BDT
+					</p>
+				</div>
+				<div class="col-1-of-5">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Fund Needed
+					</h3>
+					<p class="paragraph">
+						{{value.3}} BDT
+					</p>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	<br><br><br><br>
+	<h2 class="heading-secondary2">
+		<div class="u-align-center u-margin-bottom-big">
+			Donate Section
+		</div>
+	</h2>
+	<div class="row"><button class= 'button button1' id ="show" onclick="myFunction()"> Make Donate</button></div>
+
+	
+	<div id = 'content'>
+		<form method="post" action="#">
+			{% csrf_token %}
+			<div class="row">
+				<div class="col-1-of-2">
+					<h3>
+						Event ID &nbsp; &nbsp;
+						<input type="text1" name="id" id="id" placeholder="Enter Event ID" required>
+					</h3>
+				</div>
+				<div class="col-1-of-2">
+					<h3>
+						Payment &nbsp; Amount &nbsp;&nbsp;
+						<input type="number1" name="amount" id="amount" placeholder="Amount (BDT)" required>
+					</h3>
+				</div>
+			</div>
+			<div class="row">
+				<img  src="{% static '/img/bkashPay.png' %}" class="center1">
+			</div>	
+			<div class="row">
+				<div class="col-2-of-3">
+					<div>
+						<input id='done' type="submit" value="Done!">
+					</div>
+				</div>	
+			</div>
+		</form>
+	</div>
+	
+
+<script>
+	function myFunction() {
+		var x = document.getElementById("content");
+		if (x.style.display == "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+</script>
+
+</body>
+</html>

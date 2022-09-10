@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style2.css?{% now "U" %}">
+	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<title>Profile[Volunteer]</title>
+</head>
+
+<body>
+    <div class="topnav1">
+        <a href="/home/">Logout</a>
+        <a class="active" href='#'>Profile</a>
+    </div>
+
+	<div class="about-section">
+		<h2 class="heading-secondary">
+			<div class="u-align-center u-margin-bottom-big">
+				Welcome to our family As a Volunteer!
+			</div>
+		</h2>
+		<div class="row">
+			<div class="col-1-of-2">
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					Name
+				</h3>
+				<p class="paragraph">
+					{{FIRST_NAME}}
+					{{LAST_NAME}}
+				</p>
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					Email
+				</h3>
+				<p class="paragraph">
+					{{EMAIL}} 
+				</p>
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					Phone Number
+				</h3>
+				<p class="paragraph">
+					{{CONTACT}} 
+				</p>
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					NID
+				</h3>
+				<p class="paragraph">
+					{{NID}} 
+				</p>
+				<h3 class="heading-tertiary u-margin-bottom-small">
+					Voluntary Status
+				</h3>
+				<p class="paragraph">
+					{{STATUS}} 
+				</p>
+			</div>
+            <div class="col-1-of-3">
+				<div class="row"><br></div>
+				<div class="row">
+					<a href="/event_details_v/" class="btn-rectangular">Join an event &rarr;</a>
+				</div>
+				<div class="row">
+					<a href="/voluntaryHistory/" class="btn-rectangular">Your Voluntary</a>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+</body>
+</html>

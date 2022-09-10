@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/style3.css?{% now "U" %}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Create Event</title>
+</head>
+<body>
+	<div class="topnav1">
+		<a href="/organizor_profile/">Back to Profile</a>
+		<a class="active" href="#">Create Event</a>
+	</div>
+	
+    <div class="container">
+        <header>Create An Event</header>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <div class="form first">
+                <div class="details personal">
+                    <span> </span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Event Name</label>
+                            <input type="text" name = "Event_Name" placeholder="Enter Event Name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Start Time</label>
+                            <input type="date" name = "Start_Time" placeholder="Enter Start Time" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>End Time</label>
+                            <input type="date" name = "End_Time" placeholder="Enter End Time" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Location</label>
+                            <select name = "Location" required>
+                                <option disabled selected>Select Event Location</option>
+                                <option>Bagerhat</option>
+                                <option>Bandarban</option>
+                                <option>Barguna</option>
+                                <option>Barisal</option>
+                                <option>Bhola</option>
+                                <option>Bogra</option>
+                                <option>Brahmanbaria</option>
+                                <option>Chandpur</option>
+                                <option>Chittagong</option>
+                                <option>Chuadanga</option>
+                                <option>Comilla</option>
+                                <option>Cox`s Bazar</option>
+                                <option>Dhaka</option>
+                                <option>Dinajpur</option>
+                                <option>Faridpur</option>
+                                <option>Feni</option>
+                                <option>Gaibandha</option>
+                                <option>Gazipur</option>
+                                <option>Gopalganj</option>
+                                <option>Habiganj</option>
+                                <option>Jaipurhat</option>
+                                <option>Jamalpur</option>
+                                <option>Jessore</option>
+                                <option>Jhalakati</option>
+                                <option>Jhenaidah</option>
+                                <option>Khagrachari</option>
+                                <option>Khulna</option>
+                                <option>Kishoreganj</option>
+                                <option>Kurigram</option>
+                                <option>Kushtia</option>
+                                <option>Lakshmipur</option>
+                                <option>Lalmonirhat</option>
+                                <option>Madaripur</option>
+                                <option>Magura</option>
+                                <option>Manikganj</option>
+                                <option>Meherpur</option>
+                                <option>Moulvibazar</option>
+                                <option>Munshiganj</option>
+                                <option>Mymensingh</option>
+                                <option>Naogaon</option>
+                                <option>Narail</option>
+                                <option>Narayanganj</option>
+                                <option>Narsingdi</option>
+                                <option>Natore</option>
+                                <option>Nawabganj</option>
+                                <option>Netrakona</option>
+                                <option>Nilphamari</option>
+                                <option>Noakhali</option>
+                                <option>Pabna</option>
+                                <option>Panchagarh</option>
+                                <option>Parbattya Chattagram</option>
+                                <option>Patuakhali</option>
+                                <option>Pirojpur</option>
+                                <option>Rajbari</option>
+                                <option>Rajshahi</option>
+                                <option>Rangpur</option>
+                                <option>Satkhira</option>
+                                <option>Shariatpur</option>
+                                <option>Sherpur</option>
+                                <option>Sirajganj</option>
+                                <option>Sunamganj</option>
+                                <option>Sylhet</option>
+                                <option>Tangail</option>
+                                <option>Thakurgaon</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Budget</label>
+                            <input type="number" name = "Budget" placeholder="Enter Event Budget (BDT)" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Shop</label>
+                            <select name = "Shop" required>
+                                <option disabled selected>Select Preferred Shop</option>
+                                <option>Shwapno</option>
+                                <option>Aagora</option>
+                                <option>Lazz-Pharma</option>
+                            </select>
+                        </div>
+						
+						<div class="input-field">
+                            <label>Items</label>
+                            <select name = "Items" required>
+                                <option disabled selected>Select Item Package</option>
+                                <option>Package SUCHONA</option>
+                                <option>Package HASHIMUKH</option>
+                                <option>Package HAPPYLIFE</option>
+                            </select>
+                        </div>
+						<div class="input-field">
+                            <label>Quantity</label>
+                            <input type="number" name = "Quantity" placeholder="Enter Package Quantity" required>
+                        </div>
+						<div class="input-field">
+                            <label>Event For</label>
+                            <select name = "Event_For" required>
+                                <option disabled selected>Select purpose</option>
+                                <option>Myself</option>
+                                <option>My family</option>
+                                <option>People of my area</option>
+                            </select>
+                        </div>
+						<a href="/packages/" class="btn-rectangular3">About item package</a>
+						<div>
+							<input type="submit" value="Create">
+						</div>						
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script> 
+		{% for message in messages %}
+			{% if message.tags == 'success'%}
+                Swal.fire({
+                    position: 'top-end',
+                    title: 'Created event has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+			  {% endif %}
+		{%endfor%}
+	</script
+</body>
+</html>

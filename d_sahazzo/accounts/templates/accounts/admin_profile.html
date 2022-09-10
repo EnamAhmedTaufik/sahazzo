@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style2.css?{% now "U" %}">
+	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<title>Profile[Admin]</title>
+</head>
+
+<body>
+    <div class="topnav1">
+        <a href="/home/">Logout</a>
+        <a class="active" href='#'>Profile</a>
+    </div>
+
+	<div class="about-section">
+		<h2 class="heading-secondary2">
+			<div class="u-align-center u-margin-bottom-big">
+				Admin &nbsp; panel
+			</div>
+		</h2>
+		<div class="row">
+			<div class="col-1-of-2">
+				<h3 class="heading-tertiary2 u-margin-bottom-small">
+					Name : <sp> {{FIRST_NAME}} {{LAST_NAME}} </sp>
+				</h3>
+				<h3 class="heading-tertiary2 u-margin-bottom-small">
+					Email : {{EMAIL}}
+				</h3>
+				<div class="row"><br></div>
+			</div>
+		</div>
+	</div>
+	<div class="amenities-section">
+		<div class="row">
+			<div class="col-2-of-3">
+				<div class="row">
+					<a href="/collectFund/" class="btn-rectangular3">Collect fund &rarr;</a>
+				</div>
+				<div class="row">
+					<a href="/shopPayment/" class="btn-rectangular3">shop payment &rarr;</a>
+				</div>
+				<div class="row">
+					<a href="/manageEvents/" class="btn-rectangular3">manage event &rarr;</a>
+				</div>
+				
+			</div>
+            <div class="col-1-of-3">
+				<div class="row">
+					<a href="/donatorDatabase/" class="btn-rectangular3">*Donator database*</a>
+				</div>
+				<div class="row">
+					<a href="/organizorDatabase/" class="btn-rectangular3">Organizor database</a>
+				</div>
+				<div class="row">
+					<a href="/volunteerDatabase/" class="btn-rectangular3">Volunteer database</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script> 
+		{% for message in messages %}
+			{% if message.tags == 'success'%}
+				swal({
+					title: "Data Updated!",
+					icon: "success",
+					button: "Ok",
+				});
+			  {% endif %}
+		{%endfor%}
+	</script
+</body>
+</html>

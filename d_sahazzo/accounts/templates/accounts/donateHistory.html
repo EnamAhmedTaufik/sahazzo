@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<style>
+		table, th, td {
+		  border:1px solid black;
+		}
+		table td,th {color : #000000;}
+	</style>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style2.css?{% now "U" %}">
+	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet' type='text/css'>
+
+	<title>Donation History</title>
+</head>
+
+<body>
+    <div class="topnav1">
+        <a href="/donator_profile/">Profile</a>
+        <a class="active" href="#">Donation History</a>
+    </div>
+
+	
+	<h2 class="heading-secondary2">
+		<div class="u-align-center u-margin-bottom-big">
+			Your &nbsp;Donation &nbsp;Details
+		</div>
+	</h2>
+	<div class="amenities-section">
+		<table style="width:100% " class="center">
+			<tr>
+				<th>Event ID</th>
+				<th>Donation Via</th>
+				<th>Donation Amount</th>
+				
+			</tr>
+			{% for value in a_dict.values %}
+				<tr style="text-align:center">
+				<td>{{value.0}}</td>
+				<td>{{value.1}}</td>
+				<td>{{value.2}}</td>
+				</tr>
+			{% endfor %}
+			
+		</table>
+	</div>
+
+</body>
+</html>

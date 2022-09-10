@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css?{% now "U" %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style2.css?{% now "U" %}">
+	<link href='http://fonts.googleapis.com/css?family=Lora|Satisfy:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<title>Event Details [Volunteer]</title>
+	<style>
+	  #content{
+		width:100%;
+		background-color: rgb(234, 242, 255); 
+		padding: 2%;
+		margin-top: 1%;
+		margin-bottom: 0%;
+	  }
+	  </style>
+
+	
+</head>
+
+<body>
+
+    <div class="topnav1">
+        <a href="/volunteer_profile/">Profile</a>
+        <a class="active" href="#">Events Details</a>
+    </div>
+
+	
+	<h2 class="heading-secondary2">
+		<div class="u-align-center u-margin-bottom-big">
+			All&nbsp;Active&nbsp;Events
+		</div>
+	</h2>
+	{% for value in a_dict.values %}
+		<div class="amenities3-section">
+			<div class="row">
+				<div class="col-1-of-4">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Event ID
+					</h3>
+					<p class="paragraph">
+						{{value.3}} 
+					</p>
+				</div>
+				<div class="col-1-of-4">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Event Name
+					</h3>
+					<p class="paragraph">
+						{{value.0}} 
+					</p>
+				</div>
+				<div class="col-1-of-4">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						End Time
+					</h3>
+					<p class="paragraph">
+						{{value.1}} 
+					</p>
+				</div>
+				<div class="col-1-of-4">
+					<h3 class="heading-tertiary u-margin-bottom-small">
+						Location
+					</h3>
+					<p class="paragraph">
+						{{value.2}} 
+					</p>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+	
+	<div id = 'content'>
+		<form method="post" action="#">
+			{% csrf_token %}
+			<div class="row">
+				<div class="center2">
+					<h3>
+						Join As A Volunteer 
+						<br><br>
+					</h3>
+				</div>
+				<div class="center1">
+					<h3>
+						Event ID &nbsp; &nbsp;
+						<input type="text1" name="id" id="id" placeholder="Enter Event ID" required>
+					</h3>
+				</div>
+				<div>
+					<input id='done' type="submit" value="Join!">
+				</div>
+			</div>
+		</form>
+	</div>
+	
+
+</body>
+</html>
